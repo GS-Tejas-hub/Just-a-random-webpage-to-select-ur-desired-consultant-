@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Doctor</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+      text-decoration: underline rgb(113, 255, 113);
+      margin-top: 0;
+    }
+
+    .doctor-card {
+      display: inline-block;
+      text-align: center;
+      margin: 10px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .doctor-card:hover {
+      transform: scale(1.1);
+    }
+
+    img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .doctor-name,
+    .doctor-profession {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 0px;
+      margin-top: 5px;
+      font-size: 14px;
+      transition: background-color 0.2s;
+    }
+
+    .doctor-card:hover .doctor-name,
+    .doctor-card:hover .doctor-profession {
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Select Doctor</h1>
+
+  <div id="doctorContainer"></div>
+
+  <script>
+    const doctorData = [
+      { "name": "Dr. Najwa Joharji", "profession": "Pediatric Dental Consultant", "image": "C:\Users\gudur\Downloads\IMG_20240225_231914.png" },
+      { "name": "Dr. Ibrahim Almajed", "profession": "Orthodontist", "image": "C:\Users\gudur\Downloads\IMG_20240225_231836.png" },
+      { "name": "Dr. Mahanna Alijabab", "profession": "Orthodontist", "image": "C:\Users\gudur\Downloads\IMG_20240225_231931.png" },
+      { "name": "Dr. Wael Alomari", "profession": "Dental Care", "image":  "C:\Users\gudur\Downloads\IMG_20240225_231952.png"},
+      // ... (add 21 more entries with image URLs, names, and professions)
+    ];
+
+    const doctorContainer = document.getElementById('doctorContainer');
+
+    doctorData.forEach(doctor => {
+      const doctorCard = document.createElement('div');
+      doctorCard.className = 'doctor-card';
+
+      const doctorImage = document.createElement('img');
+      doctorImage.src = doctor.image;
+      doctorCard.appendChild(doctorImage);
+
+      const doctorName = document.createElement('div');
+      doctorName.className = 'doctor-name';
+      doctorName.textContent = doctor.name;
+      doctorCard.appendChild(doctorName);
+
+      const doctorProfession = document.createElement('div');
+      doctorProfession.className = 'doctor-profession';
+      doctorProfession.textContent = doctor.profession;
+      doctorCard.appendChild(doctorProfession);
+
+      doctorContainer.appendChild(doctorCard);
+    });
+  </script>
+
+</body>
+</html>
